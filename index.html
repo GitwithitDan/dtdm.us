@@ -4,117 +4,395 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dan the Digital Man - AI Tools That Save You Hours</title>
-    <meta name="description" content="AI tools and systems that save hours of work — digital products for real productivity.">
     
     <!-- Favicon Links -->
     <link rel="icon" type="image/png" sizes="32x32" href="https://dtdm.us/images/digital-man.png">
     <link rel="icon" type="image/png" sizes="16x16" href="https://dtdm.us/images/digital-man.png">
     <link rel="apple-touch-icon" sizes="180x180" href="https://dtdm.us/images/digital-man.png">
     
-    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
-    
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-        
+
         body {
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             min-height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
-            padding: 20px;
-            color: #fff;
-        }
-        
-        .container {
-            max-width: 600px;
-            width: 100%;
-            text-align: center;
-        }
-        
-        .logo {
-            width: 150px;
-            height: 150px;
-            margin: 0 auto 30px;
-            border-radius: 20px;
             overflow: hidden;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            position: relative;
+            background: #000000;
         }
-        
+
+        /* Matrix-style animated background */
+        .background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            background: radial-gradient(ellipse at center, #0a1628 0%, #000000 100%);
+        }
+
+        /* Canvas for matrix rain effect */
+        #matrix-canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            opacity: 0.15;
+        }
+
+        /* Animated wave layers */
+        .wave-container {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 2;
+            pointer-events: none;
+            overflow: hidden;
+        }
+
+        .wave {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 200%;
+            height: 100%;
+            background: linear-gradient(180deg, transparent 0%, rgba(0, 100, 255, 0.03) 50%, transparent 100%);
+            animation: wave-animation 20s linear infinite;
+        }
+
+        .wave:nth-child(2) {
+            animation-duration: 15s;
+            animation-delay: -5s;
+            background: linear-gradient(180deg, transparent 0%, rgba(0, 200, 255, 0.02) 50%, transparent 100%);
+        }
+
+        .wave:nth-child(3) {
+            animation-duration: 25s;
+            animation-delay: -10s;
+            background: linear-gradient(180deg, transparent 0%, rgba(100, 150, 255, 0.025) 50%, transparent 100%);
+        }
+
+        @keyframes wave-animation {
+            0% {
+                transform: translateX(0) translateY(0) rotate(0deg);
+            }
+            50% {
+                transform: translateX(-25%) translateY(-10%) rotate(2deg);
+            }
+            100% {
+                transform: translateX(-50%) translateY(0) rotate(0deg);
+            }
+        }
+
+        /* Floating data streams */
+        .data-stream {
+            position: absolute;
+            width: 2px;
+            height: 100px;
+            background: linear-gradient(to bottom, transparent, rgba(0, 255, 255, 0.5), transparent);
+            animation: stream-fall linear infinite;
+            opacity: 0.3;
+        }
+
+        @keyframes stream-fall {
+            0% {
+                transform: translateY(-100vh);
+                opacity: 0;
+            }
+            10% {
+                opacity: 0.3;
+            }
+            90% {
+                opacity: 0.3;
+            }
+            100% {
+                transform: translateY(100vh);
+                opacity: 0;
+            }
+        }
+
+        /* Pulsing glow effect */
+        .glow-pulse {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            width: 800px;
+            height: 800px;
+            margin: -400px 0 0 -400px;
+            background: radial-gradient(circle, rgba(0, 100, 255, 0.1) 0%, transparent 70%);
+            animation: pulse 8s ease-in-out infinite;
+            z-index: 3;
+            pointer-events: none;
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+                opacity: 0.3;
+            }
+            50% {
+                transform: scale(1.2);
+                opacity: 0.5;
+            }
+        }
+
+        /* Content container */
+        .container {
+            position: relative;
+            z-index: 10;
+            text-align: center;
+            padding: 2rem;
+            max-width: 800px;
+            width: 100%;
+        }
+
+        .logo-link {
+            display: inline-block;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .logo {
+            width: 180px;
+            height: 180px;
+            margin: 0 auto 2rem;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 4px solid rgba(0, 200, 255, 0.3);
+            box-shadow: 
+                0 0 30px rgba(0, 200, 255, 0.3),
+                0 20px 60px rgba(0, 0, 0, 0.5);
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .logo::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(
+                45deg,
+                transparent,
+                rgba(0, 200, 255, 0.1),
+                transparent
+            );
+            transform: rotate(45deg);
+            animation: logo-shine 3s linear infinite;
+        }
+
+        @keyframes logo-shine {
+            0% {
+                transform: rotate(45deg) translateY(-100%);
+            }
+            100% {
+                transform: rotate(45deg) translateY(100%);
+            }
+        }
+
+        .logo-link:hover .logo {
+            transform: scale(1.05);
+            border-color: rgba(0, 255, 255, 0.6);
+            box-shadow: 
+                0 0 50px rgba(0, 255, 255, 0.5),
+                0 20px 60px rgba(0, 0, 0, 0.7);
+        }
+
         .logo img {
             width: 100%;
             height: 100%;
             object-fit: cover;
+            position: relative;
+            z-index: 1;
         }
-        
+
         h1 {
             font-family: 'Space Grotesk', sans-serif;
-            font-size: 3rem;
+            font-size: clamp(2.5rem, 8vw, 4.5rem);
             font-weight: 700;
-            margin-bottom: 15px;
-            line-height: 1.2;
+            color: #ffffff;
+            margin-bottom: 1rem;
+            line-height: 1.1;
+            letter-spacing: -0.02em;
+            text-shadow: 
+                0 0 20px rgba(0, 200, 255, 0.5),
+                0 4px 20px rgba(0, 0, 0, 0.5);
         }
-        
+
         .tagline {
-            font-size: 1.5rem;
+            font-family: 'Inter', sans-serif;
+            font-size: clamp(1.25rem, 3vw, 1.75rem);
             font-weight: 400;
-            margin-bottom: 40px;
-            opacity: 0.95;
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 3rem;
+            letter-spacing: -0.01em;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
         }
-        
+
         .cta-button {
             display: inline-block;
-            background: #fff;
-            color: #667eea;
-            padding: 18px 40px;
-            font-size: 1.1rem;
-            font-weight: 600;
+            padding: 1.25rem 3rem;
+            background: linear-gradient(135deg, #0066ff 0%, #00ccff 100%);
+            color: white;
             text-decoration: none;
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.125rem;
+            font-weight: 600;
             border-radius: 50px;
             transition: all 0.3s ease;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            box-shadow: 
+                0 0 20px rgba(0, 200, 255, 0.4),
+                0 10px 30px rgba(0, 100, 255, 0.3);
+            letter-spacing: 0.02em;
+            text-transform: uppercase;
+            position: relative;
+            overflow: hidden;
         }
-        
+
+        .cta-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .cta-button:hover::before {
+            left: 100%;
+        }
+
         .cta-button:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
-            background: #f8f9fa;
+            transform: translateY(-2px);
+            box-shadow: 
+                0 0 30px rgba(0, 255, 255, 0.6),
+                0 15px 40px rgba(0, 150, 255, 0.5);
         }
-        
+
+        /* Responsive adjustments */
         @media (max-width: 768px) {
-            h1 {
-                font-size: 2.2rem;
+            .container {
+                padding: 1.5rem;
             }
-            
-            .tagline {
-                font-size: 1.2rem;
-            }
-            
+
             .logo {
-                width: 120px;
-                height: 120px;
+                width: 140px;
+                height: 140px;
+            }
+
+            .cta-button {
+                padding: 1rem 2rem;
+                font-size: 1rem;
             }
         }
     </style>
 </head>
 <body>
+    <div class="background"></div>
+    <canvas id="matrix-canvas"></canvas>
+    <div class="wave-container">
+        <div class="wave"></div>
+        <div class="wave"></div>
+        <div class="wave"></div>
+    </div>
+    <div class="glow-pulse"></div>
+    
     <div class="container">
-        <div class="logo">
-            <img src="https://dtdm.us/images/digital-man.png" alt="Digital Man">
-        </div>
-        
+        <a href="https://www.instagram.com/Danthedigitalman" target="_blank" rel="noopener noreferrer" class="logo-link">
+            <div class="logo">
+                <img src="https://dtdm.us/images/digital-man.png" alt="Digital Man">
+            </div>
+        </a>
         <h1>Dan the Digital Man</h1>
         <p class="tagline">AI tools that save you hours</p>
-        
-        <a href="https://dannotwicz.stan.store/" class="cta-button">Shop Digital Products</a>
+        <a href="https://stan.store/DanTheDigitalMan" class="cta-button">Shop Digital Products</a>
     </div>
+
+    <script>
+        // Matrix rain effect
+        const canvas = document.getElementById('matrix-canvas');
+        const ctx = canvas.getContext('2d');
+
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+
+        const chars = '01アイウエオカキクケコサシスセソタチツテトナニヌネノハヒフヘホマミムメモヤユヨラリルレロワヲン';
+        const fontSize = 14;
+        const columns = canvas.width / fontSize;
+        const drops = Array(Math.floor(columns)).fill(1);
+
+        function drawMatrix() {
+            ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+            ctx.fillStyle = '#00ff88';
+            ctx.font = fontSize + 'px monospace';
+
+            for (let i = 0; i < drops.length; i++) {
+                const text = chars[Math.floor(Math.random() * chars.length)];
+                ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+
+                if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
+                    drops[i] = 0;
+                }
+                drops[i]++;
+            }
+        }
+
+        setInterval(drawMatrix, 50);
+
+        // Create data streams
+        function createDataStream() {
+            const stream = document.createElement('div');
+            stream.className = 'data-stream';
+            
+            const startX = Math.random() * window.innerWidth;
+            const duration = Math.random() * 3 + 2;
+            const delay = Math.random() * 5;
+            
+            stream.style.left = startX + 'px';
+            stream.style.animationDuration = duration + 's';
+            stream.style.animationDelay = delay + 's';
+            
+            document.querySelector('.wave-container').appendChild(stream);
+            
+            setTimeout(() => {
+                stream.remove();
+            }, (duration + delay) * 1000);
+        }
+
+        // Generate data streams continuously
+        setInterval(createDataStream, 500);
+        
+        // Initial batch of streams
+        for (let i = 0; i < 15; i++) {
+            setTimeout(createDataStream, i * 200);
+        }
+
+        // Resize canvas on window resize
+        window.addEventListener('resize', () => {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        });
+    </script>
 </body>
 </html>
