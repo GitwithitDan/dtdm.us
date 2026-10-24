@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Dan the Digital Man | Free Downloads &amp; Digital Products</title>
+<meta name="description" content="Free downloads and digital products from Dan the Digital Man. Enter your email to get instant access to free guides, cheat sheets, and toolkits.">
+<link rel="canonical" href="https://home.dtdm.us/">
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Dan the Digital Man">
+<meta property="og:title" content="Dan the Digital Man | Free Downloads &amp; Digital Products">
+<meta property="og:description" content="Free downloads and digital products from Dan the Digital Man. Enter your email to get instant access to free guides, cheat sheets, and toolkits.">
+<meta property="og:url" content="https://home.dtdm.us/">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Dan the Digital Man | Free Downloads &amp; Digital Products">
+<meta name="twitter:description" content="Free downloads and digital products from Dan the Digital Man. Enter your email to get instant access to free guides, cheat sheets, and toolkits.">
+
+<!-- ===== META PIXEL BASE CODE (ID 1790241192149187): PASTE MANUALLY HERE ===== -->
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --bg:#050d18;
+  --blue:#0088ff;
+  --blue-dim:rgba(0,136,255,.35);
+  --blue-faint:rgba(0,136,255,.08);
+  --text:#cfe6ff;
+  --muted:#7fa3c7;
+  --warn:#ffb020;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  background:var(--bg);
+  color:var(--text);
+  font-family:'Share Tech Mono',monospace;
+  font-size:15px;
+  line-height:1.6;
+  min-height:100vh;
+  overflow-x:hidden;
+}
+#rain{position:fixed;inset:0;z-index:0;opacity:.35}
+.grid{
+  position:fixed;inset:0;z-index:1;pointer-events:none;
+  background-image:
+    linear-gradient(rgba(0,136,255,.06) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(0,136,255,.06) 1px,transparent 1px);
+  background-size:48px 48px;
+}
+.scan{
+  position:fixed;inset:0;z-index:2;pointer-events:none;
+  background:repeating-linear-gradient(0deg,rgba(0,0,0,.18) 0,rgba(0,0,0,.18) 1px,transparent 1px,transparent 3px);
+}
+main,header,footer{position:relative;z-index:3}
+.wrap{max-width:1180px;margin:0 auto;padding:0 20px}
+
+header.hero{padding:72px 0 40px;text-align:center}
+.eyebrow{color:var(--blue);letter-spacing:.3em;font-size:12px;text-transform:uppercase}
+h1{
+  font-family:'Orbitron',sans-serif;font-weight:900;
+  font-size:clamp(30px,6vw,60px);line-height:1.1;margin:14px 0 16px;
+  color:#fff;text-shadow:0 0 24px var(--blue-dim);
+}
+h1 span{color:var(--blue)}
+.lede{max-width:680px;margin:0 auto 26px;color:var(--muted);font-size:16px}
+.jump{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+.btn{
+  display:inline-block;font-family:'Orbitron',sans-serif;font-weight:700;font-size:13px;
+  letter-spacing:.12em;text-transform:uppercase;text-decoration:none;cursor:pointer;
+  padding:13px 22px;border:1px solid var(--blue);color:#fff;background:var(--blue);
+  transition:box-shadow .2s,transform .2s,background .2s;
+}
+.btn:hover,.btn:focus-visible{box-shadow:0 0 22px var(--blue);transform:translateY(-1px);outline:none}
+.btn.ghost{background:transparent;color:var(--blue)}
+.btn.ghost:hover{background:var(--blue-faint)}
+.btn[disabled]{opacity:.5;cursor:not-allowed;box-shadow:none;transform:none}
+
+section{padding:48px 0}
+.sec-head{display:flex;align-items:baseline;gap:14px;margin-bottom:8px;flex-wrap:wrap}
+h2{font-family:'Orbitron',sans-serif;font-weight:700;font-size:clamp(20px,3.2vw,30px);color:#fff}
+.tag{color:var(--blue);font-size:12px;letter-spacing:.25em;text-transform:uppercase}
+.sec-sub{color:var(--muted);margin-bottom:26px;max-width:720px}
+
+.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:18px}
+.card{
+  background:rgba(5,13,24,.82);
+  border:1px solid var(--blue-dim);
+  padding:20px;display:flex;flex-direction:column;gap:12px;
+  position:relative;
+  transition:border-color .2s,box-shadow .2s;
+}
+.card:hover{border-color:var(--blue);box-shadow:0 0 22px rgba(0,136,255,.18)}
+.card::before,.card::after{content:"";position:absolute;width:12px;height:12px;border:2px solid var(--blue)}
+.card::before{top:-1px;left:-1px;border-right:none;border-bottom:none}
+.card::after{bottom:-1px;right:-1px;border-left:none;border-top:none}
+.card .badge{font-size:11px;letter-spacing:.2em;color:var(--blue);text-transform:uppercase}
+.card h3{font-family:'Orbitron',sans-serif;font-weight:700;font-size:16px;color:#fff;line-height:1.3}
+.card p{color:var(--muted);font-size:14px;flex:1}
+.price{font-family:'Orbitron',sans-serif;font-weight:700;font-size:22px;color:var(--blue)}
+
+form.kit{display:flex;flex-direction:column;gap:10px;margin-top:4px}
+form.kit label{font-size:11px;letter-spacing:.15em;color:var(--muted);text-transform:uppercase}
+form.kit input[type=email]{
+  width:100%;background:#020912;border:1px solid var(--blue-dim);color:#fff;
+  font-family:'Share Tech Mono',monospace;font-size:15px;padding:12px;
+}
+form.kit input[type=email]:focus{outline:none;border-color:var(--blue);box-shadow:0 0 12px var(--blue-dim)}
+.fine{font-size:11px;color:var(--muted)}
+form.kit label.consent{display:flex;gap:8px;align-items:flex-start;font-size:11px;letter-spacing:0;text-transform:none;color:var(--muted)}
+form.kit label.consent input{margin-top:3px;accent-color:var(--blue)}
+form.kit label.consent a{color:var(--blue)}
+.draft-flag{font-size:11px;color:var(--warn);border:1px dashed var(--warn);padding:4px 8px;display:none}
+.card.is-draft .draft-flag{display:inline-block}
+
+footer{padding:40px 0 60px;text-align:center;color:var(--muted);font-size:12px;border-top:1px solid var(--blue-dim);margin-top:30px}
+footer a{color:var(--blue);text-decoration:none}
+footer a:hover{text-decoration:underline}
+
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .btn,.card{transition:none}
+}
+</style>
+</head>
+<body>
+
+<canvas id="rain" aria-hidden="true"></canvas>
+<div class="grid" aria-hidden="true"></div>
+<div class="scan" aria-hidden="true"></div>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="eyebrow">// dan the digital man</div>
+    <h1>Free <span>Downloads.</span><br>Real <span>Tools.</span></h1>
+    <p class="lede">Pick a freebie, enter your email, get the file. Ready for more? The paid products are below.</p>
+    <div class="jump">
+      <a class="btn" href="#free">Get Free Files</a>
+      <a class="btn ghost" href="#paid">See Paid Products</a>
+    </div>
+  </div>
+</header>
+
+<main>
+  <section id="free">
+    <div class="wrap">
+      <div class="sec-head"><h2>Free Downloads</h2><span class="tag">email &rarr; file</span></div>
+      <p class="sec-sub">Enter your email on any card. You are sent straight to your download.</p>
+      <div class="cards" id="freeCards"></div>
+    </div>
+  </section>
+
+  <section id="paid">
+    <div class="wrap">
+      <div class="sec-head"><h2>Paid Products</h2><span class="tag">secure checkout</span></div>
+      <p class="sec-sub">Pay with card, PayPal, Apple Pay, or Google Pay at checkout.</p>
+      <div class="cards" id="paidCards"></div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p>&copy; <span id="yr"></span> Dan the Digital Man &middot; <a href="https://dtdm.us">dtdm.us</a></p>
+    <p class="fine" style="margin-top:8px">Unsubscribe any time from any email. <a id="privLink" href="#">Privacy Policy</a></p>
+  </div>
+</footer>
+
+<script>
+/* =====================================================================
+   CONFIG: EDIT ONLY THIS BLOCK.
+   kitFormId  = number in the Kit form's HTML-embed action URL:
+                https://app.kit.com/forms/<THIS NUMBER>/subscriptions
+   checkoutUrl = SamCart product > Share tab > Express URL
+   Any value still starting with REPLACE_ keeps that card in DRAFT mode
+   (button disabled, orange DRAFT flag shown).
+   ===================================================================== */
+var FREEBIES = [
+  { badge:"Free Guide",    title:"Project Hopping",                      desc:"Use Claude Projects as interchangeable personas for faster, deeper idea development.", kitFormId:"REPLACE_KIT_FORM_ID_1" },
+  { badge:"Diagnostic",    title:"The Twelve Axes of Selling Online",    desc:"Plot any selling idea across twelve structural dimensions.",                            kitFormId:"REPLACE_KIT_FORM_ID_2" },
+  { badge:"Cheat Sheet",   title:"Website Launch Cheat Sheet",           desc:"Domain to live site, in eight steps.",                                                   kitFormId:"REPLACE_KIT_FORM_ID_3" },
+  { badge:"Free Guide",    title:"PLR &amp; MRR Explained",              desc:"What PLR and MRR licenses are and how to use them.",                                     kitFormId:"REPLACE_KIT_FORM_ID_4" },
+  { badge:"Free Resource", title:"The Complete Brand Blueprint",         desc:"100 markers across 10 categories: a full brand audit framework.",                       kitFormId:"REPLACE_KIT_FORM_ID_5" },
+  { badge:"Free Resource", title:"Claude System Instructions Playbook",  desc:"Copy-paste instructions that make Claude actually listen.",                              kitFormId:"REPLACE_KIT_FORM_ID_6" }
+];
+
+var PRODUCTS = [
+  { badge:"Flagship",  title:"TRACTION",        desc:"Operator Stack flagship program.",   price:"REPLACE_PRICE_1", checkoutUrl:"REPLACE_SAMCART_EXPRESS_URL_1" },
+  { badge:"Program",   title:"Operator Stack",  desc:"The 5-tier operator program.",       price:"REPLACE_PRICE_2", checkoutUrl:"REPLACE_SAMCART_EXPRESS_URL_2" },
+  { badge:"Program",   title:"Publisher Stack", desc:"The publisher toolkit.",             price:"REPLACE_PRICE_3", checkoutUrl:"REPLACE_SAMCART_EXPRESS_URL_3" },
+  { badge:"Complete System", title:"How to Make Money with Digital Products", desc:"From idea to daily sales: the decisions, tools, setups, and sequences that turn a PDF into consistent income. Includes PLR.", price:"REPLACE_PRICE_4", checkoutUrl:"REPLACE_SAMCART_EXPRESS_URL_4" }
+];
+var PRIVACY_URL = "REPLACE_PRIVACY_URL";
+/* ===================== END CONFIG ===================== */
+
+function isDraft(v){ return !v || String(v).indexOf("REPLACE_") === 0; }
+function esc(s){ return String(s).replace(/[&<>"']/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c];}); }
+
+(function renderFree(){
+  var host = document.getElementById("freeCards"), html = "";
+  FREEBIES.forEach(function(f,i){
+    var draft = isDraft(f.kitFormId);
+    var action = draft ? "#" : "https://app.kit.com/forms/" + encodeURIComponent(f.kitFormId) + "/subscriptions";
+    var id = "em" + i;
+    html += '<article class="card' + (draft ? ' is-draft' : '') + '">' +
+      '<span class="badge">' + esc(f.badge) + '</span>' +
+      '<h3>' + f.title + '</h3>' +
+      '<p>' + esc(f.desc) + '</p>' +
+      '<span class="draft-flag">DRAFT: Kit form ID missing</span>' +
+      '<form class="kit" method="post" action="' + action + '"' + (draft ? ' onsubmit="return false"' : '') + '>' +
+        '<label for="' + id + '">Your email</label>' +
+        '<input id="' + id + '" type="email" name="email_address" placeholder="you@example.com" required autocomplete="email">' +
+        '<label class="consent"><input type="checkbox" required><span>I agree to receive emails and the <a href="' + (isDraft(PRIVACY_URL) ? '#' : esc(PRIVACY_URL)) + '" target="_blank" rel="noopener">Privacy Policy</a>.</span></label>' +
+        '<button class="btn" type="submit"' + (draft ? ' disabled' : '') + '>Send Me The File</button>' +
+      '</form>' +
+    '</article>';
+  });
+  host.innerHTML = html;
+})();
+
+(function renderPaid(){
+  var host = document.getElementById("paidCards"), html = "";
+  PRODUCTS.forEach(function(p){
+    var draft = isDraft(p.checkoutUrl);
+    html += '<article class="card' + (draft ? ' is-draft' : '') + '">' +
+      '<span class="badge">' + esc(p.badge) + '</span>' +
+      '<h3>' + esc(p.title) + '</h3>' +
+      '<p>' + esc(p.desc) + '</p>' +
+      '<div class="price">' + esc(p.price) + '</div>' +
+      '<span class="draft-flag">DRAFT: SamCart URL missing</span>' +
+      (draft
+        ? '<button class="btn" type="button" disabled>Buy Now</button>'
+        : '<a class="btn" href="' + esc(p.checkoutUrl) + '" rel="noopener">Buy Now</a>') +
+    '</article>';
+  });
+  host.innerHTML = html;
+})();
+
+document.getElementById("privLink").href = isDraft(PRIVACY_URL) ? "#" : PRIVACY_URL;
+document.getElementById("yr").textContent = new Date().getFullYear();
+
+/* Matrix rain */
+(function(){
+  var c = document.getElementById("rain"), x = c.getContext("2d");
+  var chars = "アイウエオカキクケコサシスセソタチツテトナニヌネノハヒフヘホマミムメモヤユヨラリルレロワヲン0123456789";
+  var size = 16, cols, drops;
+  function init(){
+    c.width = window.innerWidth; c.height = window.innerHeight;
+    cols = Math.ceil(c.width / size);
+    drops = []; for (var i=0;i<cols;i++) drops[i] = Math.random() * -50;
+  }
+  function draw(){
+    x.fillStyle = "rgba(5,13,24,0.08)";
+    x.fillRect(0,0,c.width,c.height);
+    x.fillStyle = "#0088ff";
+    x.font = size + "px 'Share Tech Mono', monospace";
+    for (var i=0;i<cols;i++){
+      var ch = chars.charAt(Math.floor(Math.random()*chars.length));
+      x.fillText(ch, i*size, drops[i]*size);
+      if (drops[i]*size > c.height && Math.random() > 0.975) drops[i] = 0;
+      drops[i]++;
+    }
+  }
+  init();
+  window.addEventListener("resize", init);
+  if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) setInterval(draw, 50);
+})();
+</script>
+</body>
+</html>
