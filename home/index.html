@@ -16,7 +16,23 @@
 <meta name="twitter:title" content="Dan the Digital Man | Free Downloads &amp; Digital Products">
 <meta name="twitter:description" content="Free downloads and digital products from Dan the Digital Man. Enter your email to get instant access to free guides, cheat sheets, and toolkits.">
 
-<!-- ===== META PIXEL BASE CODE (ID 1790241192149187): PASTE MANUALLY HERE ===== -->
+<!-- Meta Pixel Code (ID 1790241192149187) -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '1790241192149187');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=1790241192149187&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Meta Pixel Code -->
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -141,7 +157,7 @@ footer a:hover{text-decoration:underline}
     <p class="lede">Pick a freebie, enter your email, get the file. Ready for more? The paid products are below.</p>
     <div class="jump">
       <a class="btn" href="#free">Get Free Files</a>
-      <a class="btn ghost" href="#paid">See Paid Products</a>
+      <a class="btn ghost" id="paidJump" href="#paid">See Paid Products</a>
     </div>
   </div>
 </header>
@@ -226,6 +242,11 @@ function esc(s){ return String(s).replace(/[&<>"']/g,function(c){return {"&":"&a
 
 (function renderPaid(){
   var host = document.getElementById("paidCards"), html = "";
+  PRODUCTS = PRODUCTS.filter(function(p){ return !isDraft(p.checkoutUrl); });
+  if (!PRODUCTS.length) {
+    var sec = document.getElementById("paid"); if (sec) sec.style.display = "none";
+    var jb = document.getElementById("paidJump"); if (jb) jb.style.display = "none";
+  }
   PRODUCTS.forEach(function(p){
     var draft = isDraft(p.checkoutUrl);
     html += '<article class="card' + (draft ? ' is-draft' : '') + '">' +
