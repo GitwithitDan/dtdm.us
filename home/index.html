@@ -273,7 +273,7 @@ function esc(s){ return String(s).replace(/[&<>"']/g,function(c){return {"&":"&a
       '<span class="draft-flag">DRAFT: SamCart URL missing</span>' +
       (draft
         ? '<button class="btn" type="button" disabled>Buy Now</button>'
-        : '<a class="btn" href="' + esc(p.checkoutUrl) + '" rel="noopener">Buy Now</a>') +
+        : '<a class="btn" href="' + esc(p.checkoutUrl) + '" rel="noopener" onclick="if(window.fbq){fbq(\'track\',\'InitiateCheckout\');}">Buy Now</a>') +
     '</article>';
   });
   host.innerHTML = html;
