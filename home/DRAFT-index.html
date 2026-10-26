@@ -85,7 +85,9 @@ h2{font-family:'Orbitron',sans-serif;font-weight:700;font-size:clamp(20px,3.2vw,
 .tag{color:var(--blue);font-size:12px;letter-spacing:.25em;text-transform:uppercase}
 .sec-sub{color:var(--muted);margin-bottom:26px;max-width:720px}
 
-.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:18px}
+.cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+@media (max-width:900px){.cards{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:600px){.cards{grid-template-columns:minmax(0,1fr)}}
 .card{
   background:rgba(5,13,24,.82);
   border:1px solid var(--blue-dim);
@@ -179,16 +181,15 @@ footer a:hover{text-decoration:underline}
    (button disabled, orange DRAFT flag shown).
    ===================================================================== */
 var FREEBIES = [
-  { badge:"Free Guide", title:"Project Hopping", desc:"Use Claude Projects as interchangeable personas for faster, deeper idea development.", kitFormId:"REPLACE_KIT_FORM_ID_1" },
-  { badge:"Free Playbook", title:"Claude System Instructions Playbook", desc:"Copy-paste instructions that make Claude actually listen.", kitFormId:"REPLACE_KIT_FORM_ID_2" },
-  { badge:"Free Guide", title:"ICM Folder &amp; Markdown Guide", desc:"Jake Van Clief's Interpretable Context Methodology: numbered folders plus plain markdown as your agent architecture.", kitFormId:"REPLACE_KIT_FORM_ID_3" },
-  { badge:"Free Reference", title:"Platform &amp; Systems Integration Reference", desc:"19 categories and 150+ platforms mapped across payments, marketing, CRM, commerce, automation, and AI.", kitFormId:"REPLACE_KIT_FORM_ID_4" },
-  { badge:"Free Reference", title:"Guide to APIs", desc:"How APIs are built, secured, and organized, plus a categorized inventory of what is available to build with.", kitFormId:"REPLACE_KIT_FORM_ID_5" },
-  { badge:"Cheat Sheet", title:"1-Page Website Launch Cheat Sheet", desc:"Domain to live site on one page: buy, host, connect, secure, and ship.", kitFormId:"REPLACE_KIT_FORM_ID_6" },
-  { badge:"Free Guide", title:"PLR &amp; MRR Explained", desc:"What PLR and MRR licenses are and how to use them.", kitFormId:"REPLACE_KIT_FORM_ID_7" },
-  { badge:"Free Resource", title:"The Complete Brand Blueprint", desc:"100 markers across 10 categories: a full brand audit framework.", kitFormId:"REPLACE_KIT_FORM_ID_8" },
-  { badge:"Free List", title:"200+ Free Programs for Windows", desc:"A categorized reference of free Windows software.", kitFormId:"REPLACE_KIT_FORM_ID_9" },
-  { badge:"Free Table", title:"Free Windows Programs: Category Table", desc:"Every program listed by category with a one-line description.", kitFormId:"REPLACE_KIT_FORM_ID_10" }
+  { badge:"Free Guide", title:"Project Hopping", desc:"Use Claude Projects as interchangeable personas for faster, deeper idea development.", kitFormId:"10101233" },
+  { badge:"Free Playbook", title:"Claude System Instructions Playbook", desc:"Copy-paste instructions that make Claude actually listen.", kitFormId:"10101266" },
+  { badge:"Free Guide", title:"ICM Folder &amp; Markdown Guide", desc:"Jake Van Clief's Interpretable Context Methodology: numbered folders plus plain markdown as your agent architecture.", kitFormId:"10101285" },
+  { badge:"Free Reference", title:"Platform &amp; Systems Integration Reference", desc:"19 categories and 150+ platforms mapped across payments, marketing, CRM, commerce, automation, and AI.", kitFormId:"10101292" },
+  { badge:"Free Reference", title:"Guide to APIs", desc:"How APIs are built, secured, and organized, plus a categorized inventory of what is available to build with.", kitFormId:"10101303" },
+  { badge:"Cheat Sheet", title:"1-Page Website Launch Cheat Sheet", desc:"Domain to live site on one page: buy, host, connect, secure, and ship.", kitFormId:"10101315" },
+  { badge:"Free Guide", title:"PLR &amp; MRR Explained", desc:"What PLR and MRR licenses are and how to use them.", kitFormId:"10101320" },
+  { badge:"Free Resource", title:"The Complete Brand Blueprint", desc:"100 markers across 10 categories: a full brand audit framework.", kitFormId:"10101325" },
+  { badge:"Free List", title:"200+ Free Programs for Windows", desc:"A categorized reference of free Windows software.", kitFormId:"10101332" }
 ];
 
 var PRODUCTS = [
