@@ -79,6 +79,16 @@ main,header,footer{position:relative;z-index:3}
 
 header.hero{padding:72px 0 40px;text-align:center}
 .eyebrow{color:var(--blue);letter-spacing:.3em;font-size:12px;text-transform:uppercase}
+.topbar{position:relative;display:flex;align-items:center;justify-content:center;min-height:40px}
+.topnav{position:absolute;right:0;top:50%;transform:translateY(-50%);display:flex;gap:10px}
+.navlink{font-family:'Share Tech Mono',monospace;font-size:12px;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--blue);text-decoration:none;padding:8px 14px;border:1px solid var(--blue-dim);background:var(--blue-faint)}
+.navlink:hover,.navlink:focus-visible{border-color:var(--blue);box-shadow:0 0 14px var(--blue-dim);color:#fff;outline:none}
+.navlink.mail{background:var(--blue);color:#fff;border-color:var(--blue)}
+@media (max-width:760px){
+  .topbar{flex-direction:column;gap:12px}
+  .topnav{position:static;transform:none}
+}
 h1{
   font-family:'Orbitron',sans-serif;font-weight:900;
   font-size:clamp(30px,6vw,60px);line-height:1.1;margin:14px 0 16px;
@@ -169,7 +179,13 @@ form.kit label.consent{font-size:12.5px;line-height:1.45;color:#a9c4de}
 
 <header class="hero">
   <div class="wrap">
-    <div class="eyebrow">// dan the digital man</div>
+    <div class="topbar">
+      <div class="eyebrow">// dan the digital man</div>
+      <nav class="topnav" aria-label="Site links">
+        <a class="navlink" href="https://dtdm.us/learn/">Blog</a>
+        <a class="navlink mail" href="mailto:dan@dtdm.us">&#9993; dan@dtdm.us</a>
+      </nav>
+    </div>
     <h1>Free <span>Downloads.</span><br>Real <span>Tools.</span></h1>
     <p class="lede">Pick a freebie, enter your email, and get the file.</p>
     <div class="jump" id="jumpRow">
