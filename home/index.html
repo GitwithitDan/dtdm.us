@@ -189,7 +189,7 @@ form.kit label.consent{font-size:12.5px;line-height:1.45;color:#a9c4de}
     <h1>Free <span>Downloads.</span><br>Real <span>Tools.</span></h1>
     <p class="lede">Pick a freebie, enter your email, and get the file.</p>
     <div class="jump" id="jumpRow">
-      <a class="btn ghost" id="paidJump" href="#paid">See Paid Products</a>
+      <a class="btn ghost" id="paidJump" href="#paid">See Products</a>
     </div>
   </div>
 </header>
@@ -205,8 +205,8 @@ form.kit label.consent{font-size:12.5px;line-height:1.45;color:#a9c4de}
 
   <section id="paid">
     <div class="wrap">
-      <div class="sec-head"><h2>Paid Product</h2><span class="tag">secure checkout</span></div>
-      <p class="sec-sub">Pay with card, PayPal, Apple Pay, or Google Pay at checkout.</p>
+      <div class="sec-head"><h2>Products</h2><span class="tag">digital products</span></div>
+      <p class="sec-sub">See the full details on the product page, then check out securely with card or PayPal.</p>
       <div class="cards" id="paidCards"></div>
     </div>
   </section>
@@ -224,7 +224,7 @@ form.kit label.consent{font-size:12.5px;line-height:1.45;color:#a9c4de}
    CONFIG: EDIT ONLY THIS BLOCK.
    kitFormId  = number in the Kit form's HTML-embed action URL:
                 https://app.kit.com/forms/<THIS NUMBER>/subscriptions
-   checkoutUrl = SamCart product > Share tab > Express URL
+   pageUrl = the product's sales page (the funnel page handles checkout)
    Any value still starting with REPLACE_ keeps that card in DRAFT mode
    (button disabled, orange DRAFT flag shown).
    ===================================================================== */
@@ -241,7 +241,7 @@ var FREEBIES = [
 ];
 
 var PRODUCTS = [
-  { badge:"Complete System", title:"How to Make Money with Digital Products", desc:"From idea to daily sales: the decisions, tools, setups, and sequences that turn a PDF into consistent income. Includes PLR.", price:"REPLACE_PRICE_1", checkoutUrl:"REPLACE_SAMCART_EXPRESS_URL_1" }
+  { badge:"Complete System", title:"How to Make Money with Digital Products", desc:"From idea to daily sales: the decisions, tools, setups, and sequences that turn a PDF into consistent income. Includes PLR.", price:"$27", pageUrl:"https://howtomake.dtdm.us" }
 ];
 var PRIVACY_URL = "/privacy.html";
 var TERMS_URL = "/terms.html";
@@ -274,22 +274,22 @@ function esc(s){ return String(s).replace(/[&<>"']/g,function(c){return {"&":"&a
 
 (function renderPaid(){
   var host = document.getElementById("paidCards"), html = "";
-  PRODUCTS = PRODUCTS.filter(function(p){ return !isDraft(p.checkoutUrl); });
+  PRODUCTS = PRODUCTS.filter(function(p){ return !isDraft(p.pageUrl); });
   if (!PRODUCTS.length) {
     var sec = document.getElementById("paid"); if (sec) sec.style.display = "none";
     var jb = document.getElementById("jumpRow"); if (jb) jb.style.display = "none";
   }
   PRODUCTS.forEach(function(p){
-    var draft = isDraft(p.checkoutUrl);
+    var draft = isDraft(p.pageUrl);
     html += '<article class="card' + (draft ? ' is-draft' : '') + '">' +
       '<span class="badge">' + esc(p.badge) + '</span>' +
       '<h3>' + esc(p.title) + '</h3>' +
       '<p>' + esc(p.desc) + '</p>' +
       '<div class="price">' + esc(p.price) + '</div>' +
-      '<span class="draft-flag">DRAFT: SamCart URL missing</span>' +
+      '<span class="draft-flag">DRAFT: page URL missing</span>' +
       (draft
-        ? '<button class="btn" type="button" disabled>Buy Now</button>'
-        : '<a class="btn" href="' + esc(p.checkoutUrl) + '" rel="noopener" onclick="if(window.fbq){fbq(\'track\',\'InitiateCheckout\');}">Buy Now</a>') +
+        ? '<button class="btn" type="button" disabled>Learn More</button>'
+        : '<a class="btn" href="' + esc(p.pageUrl) + '" rel="noopener" onclick="if(window.fbq){fbq(\'track\',\'ViewContent\',{content_name:\'' + esc(p.title) + '\'});}">Learn More</a>') +
     '</article>';
   });
   host.innerHTML = html;
